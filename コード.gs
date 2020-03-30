@@ -19,7 +19,7 @@ function sendMailFromKintaiForm() {
     var teamHead = '所属チーム';
     var messageHead = '連絡事項';
     var detailHead = '連絡内容詳細';
-    var privateMail = '連絡先メールアドレス';
+    var privateMail = '連絡先メールアドレス（任意）';
 
     // メール送信先、送信元
     var admin = "hakamata-h@gnavi.co.jp"; // 管理者（エラー時にメール受信）
