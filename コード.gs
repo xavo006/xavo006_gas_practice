@@ -23,7 +23,7 @@ function sendMailFromKintaiForm() {
 
     // メール送信先、送信元
     var admin = "hakamata-h@gnavi.co.jp"; // 管理者（エラー時にメール受信）
-    var from  = "hakamata-h+test01@gnavi.co.jp"; // 送信用アドレス（エイリアス必須）
+    var from  = "propro-kintai@gnavi.co.jp"; // 送信用アドレス（エイリアス必須）
     var to    = "";    // To:　チームごとのメール送信先が入る
     var cc    = ""; // Cc:
     var bcc   = admin; // Bcc:
@@ -77,6 +77,10 @@ function sendMailFromKintaiForm() {
             if ( col_name === timeStampHead ){
               col_value = Utilities.formatDate(col_value, 'JST', 'yyyy/M/d H:m');
             }
+          
+            // メール本文作成（シート見出しとフォーム投稿内容を合体）
+            body += "【"+col_name+"】\n";
+            body += col_value + "\n\n";
 
             // メールタイトル作成
             if ( col_name === messageHead ) {
@@ -91,10 +95,6 @@ function sendMailFromKintaiForm() {
             if ( col_name === timeStampHead ) {
                 subject += col_value;
             }
-
-            // メール本文作成（シート見出しとフォーム投稿内容を合体）
-            body += "【"+col_name+"】\n";
-            body += col_value + "\n\n";
         }
         body += footer;
 
